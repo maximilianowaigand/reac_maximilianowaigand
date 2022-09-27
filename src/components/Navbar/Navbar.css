@@ -1,0 +1,14 @@
+
+
+.logo {
+    color: red;
+    ;
+
+}
+
+.button {
+    display: flex;
+    justify-content: center;
+    margin: 5 px;
+
+}
