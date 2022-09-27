@@ -6,7 +6,7 @@ import CardWitget from '../CardWidget/CardWidget'
 const Navbar = () => {
     return (
 
-    <header>
+    <header className= "navbar">
         <img className="logo" src={logo} alt='logo'/>
     <nav>
         <div className="button" >

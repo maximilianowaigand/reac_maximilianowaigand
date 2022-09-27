@@ -1,7 +1,11 @@
 
+* {
+    padding: 0;
+    margin: 0;
+}
 
 .logo {
-    color: red;
+    padding: 5px;
     ;
 
 }
