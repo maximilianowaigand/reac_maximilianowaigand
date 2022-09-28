@@ -4,7 +4,7 @@ import cart from './assets/carrito.jpg'
 const CardWitget = () => {
     return (
         <div>
-         <img src={cart} alt='cart'/>  
+         <img className="" src={cart} alt='cart'/>  
 
         </div>
     )

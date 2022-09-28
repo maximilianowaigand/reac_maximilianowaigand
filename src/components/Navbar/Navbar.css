@@ -5,7 +5,8 @@
 }
 
 .logo {
-    padding: 5px;
+    
+    width: 20%;
     ;
 
 }
@@ -13,6 +14,6 @@
 .button {
     display: flex;
     justify-content: center;
-    margin: 5 px;
+    padding: 10px
 
 }
