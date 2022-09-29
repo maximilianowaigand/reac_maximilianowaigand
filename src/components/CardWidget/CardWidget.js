@@ -1,10 +1,11 @@
 import cart from './assets/carrito.jpg'
+import './CardWidget.css'
 
 
 const CardWitget = () => {
     return (
-        <div>
-         <img className="" src={cart} alt='cart'/>  
+        <div >
+         <img className="carrito" src={cart} alt='cart'/>  
 
         </div>
     )

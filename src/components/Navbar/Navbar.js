@@ -7,17 +7,21 @@ const Navbar = () => {
     return (
 
     <header className= "navbar">
+        <div >
         <img className="logo" src={logo} alt='logo'/>
-    <nav>
-        <div className="button" >
-            <button>celulares</button>
-            <button>celulares</button>
-            <button>celulares</button>
         </div>
+    <nav className="buttons">
+        <table className="button" >
+            <button>celulares</button>
+            <button>celulares</button>
+            <button>celulares</button>
+        </table>
+
+    </nav>
         <CardWitget/>
 
 
-    </nav>
+    
     </header>
     )
 
