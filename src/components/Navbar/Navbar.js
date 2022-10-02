@@ -1,6 +1,7 @@
 import './Navbar.css'
 import logo from './assets/logo.jpg'
 import CardWitget from '../CardWidget/CardWidget'
+import Button from '../button/button'
 
 
 const Navbar = () => {
@@ -11,11 +12,10 @@ const Navbar = () => {
         <img className="logo" src={logo} alt='logo'/>
         </div>
     <nav className="buttons">
-        <table className="button" >
-            <button>celulares</button>
-            <button>celulares</button>
-            <button>celulares</button>
-        </table>
+        <Button>celulares</Button>
+        <Button>celulares</Button>
+        <Button>celulares</Button>
+        
 
     </nav>
         <CardWitget/>

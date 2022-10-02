@@ -7,30 +7,13 @@
 }
 .navbar {
     display: flex;
-    justify-content:space-around
+    justify-content:space-between;
 }
 
 .logo {
     width: 20%;
     display: flex;
-    justify-content: start;
-    
-    ;
+    justify-content: flex-start;
 
 }
 
-.buttons {
-    display: flex;
-    justify-content: center;
-    width: 50%;
-    margin: auto;
-    padding: 10px;
-    
-
-}
-
-.button {
-    display: flex;
-    justify-content: space-between;
-    padding: 10px;
-}
