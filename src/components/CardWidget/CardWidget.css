@@ -1,12 +1,12 @@
 .carrito {
-    
-    
     display: flex;
     justify-content: flex-end;
+    
     padding-right: 10px;
 
 }
 
 .imagenCarrito {
-    width: 15%;
+    width: 80px;
+    
 }
