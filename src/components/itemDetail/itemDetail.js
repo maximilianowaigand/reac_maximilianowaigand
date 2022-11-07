@@ -1,24 +1,37 @@
 
 import Couter from '../Couter/Couter'
+import { useContext } from 'react'
+import { CartContext } from '../../context/CartContext'
+import { NotificationContext } from '../notification/ServiceNotification'
 
-const ItemDetail = ({id, name, price, img, stock, description }) => {
+const ItemDetail = ({id, name, price,category, img, stock, description }) => {
+
+    const { addItem, isInCart  } = useContext(CartContext)
+    const {setNotification} = useContext(NotificationContext)
 
     const handleOnAdd = (quantity) => {
         const productToAdd = {
             id, name, price, quantity
         }
-        console.log(productToAdd)
+
+        addItem(productToAdd)
+        setNotification('success', 'se agrego correctamente ${quantity} ${name}')
     }
+
+    
 
 
     return (
         <div>
             <h2>{name}</h2>
             <img className="productimages" src={img} alt={name}/>
-            <p>precio: $ {price}</p>
-            <p>descripcion:{description}</p>
+            <section>
+                <p> categoria: { category }</p>
+                <p>precio: $ {price}</p>
+                <p>descripcion:{description}</p>
+            </section>
             <div>
-                <Couter onnAdd={handleOnAdd} stock={stock} />
+                { stock !== 0 ? <Couter onAdd={handleOnAdd} stock={stock} />: <p>No hay stock</p>}
             </div>
             
 

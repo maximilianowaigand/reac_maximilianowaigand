@@ -1,26 +1,33 @@
-import React , {useState, useEffect } from "react"
-import {getProduct, getProductsByCategory} from "../../asyncMock"
+import React , {useState, useEffect, useContext } from "react"
 import './itemListConteiner.css'
 import { useParams } from "react-router-dom"
 import ItemList from "../ItemList/ItemList"
-
+import { db } from '../../service/firebase'
+import { getDocs, collection, query, where } from "firebase/firestore"
+import { NotificationContext } from "../notification/ServiceNotification"
 
 
 const ItemListConteiner = ({ greeting  }) => {
 
-  const [products, setproductos] = useState ([])
+  const [products, setProducts] = useState ([])
   const [loading, setLoading] = useState(true)
 
   const { categoryId} =useParams()
+  const {setNotification} = useContext(NotificationContext)
 
   useEffect(() => {
     setLoading(true)
 
-    const asyncFuncion = categoryId ? getProductsByCategory : getProduct
-    
-    asyncFuncion(categoryId).then(response => {
-      setproductos(response)
+    const collectionRef = categoryId 
+    ? query(collection(db, 'products'),where('category', '==', categoryId))
+    : collection (db, 'products' )
 
+    getDocs(collectionRef).then(response => {
+      const productsAdaped = response.docs.map(doc => {
+        const data = doc.data()
+        return { id: doc.id, ...data}
+      })
+      setProducts(productsAdaped)
     }).finally(()=> {
       setLoading(false)
     })
@@ -41,6 +48,7 @@ if (loading) {
   
   return (
   <div>
+    
     <ItemList products={products}  />
       
       </div>
