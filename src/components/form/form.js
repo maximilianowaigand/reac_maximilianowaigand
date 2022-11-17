@@ -39,7 +39,7 @@ const submit = (e) => {
             })
           
         }
-    else if (email != checkEmail) {
+    else if (email !== checkEmail) {
         Swal.fire({
             title: "Los emails no coinciden",
             html: "Por favor, intente nuevamente",

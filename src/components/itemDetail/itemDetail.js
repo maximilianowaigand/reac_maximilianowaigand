@@ -3,22 +3,23 @@ import Couter from '../Couter/Couter'
 import { useContext } from 'react'
 import { CartContext } from '../../context/CartContext'
 import { NotificationContext } from '../notification/ServiceNotification'
+import { Link } from 'react-router-dom'
 
 const ItemDetail = ({id, name, price,category, img, stock, description }) => {
 
-    const { addItem, isInCart  } = useContext(CartContext)
+    const { addItem, isInCart, getProductQuantity  } = useContext(CartContext)
     const {setNotification} = useContext(NotificationContext)
 
     const handleOnAdd = (quantity) => {
         const productToAdd = {
-            id, name, price, quantity
+            id, name, price, 
         }
 
-        addItem(productToAdd)
-        setNotification('success', 'se agrego correctamente ${quantity} ${name}')
+        addItem(productToAdd,quantity)
+        setNotification('success', `se agrego correctamente ${quantity} ${name}`)
     }
 
-    
+    const quantityAdded = getProductQuantity(id)
 
 
     return (
@@ -31,7 +32,8 @@ const ItemDetail = ({id, name, price,category, img, stock, description }) => {
                 <p>descripcion:{description}</p>
             </section>
             <div>
-                { stock !== 0 ? <Couter onAdd={handleOnAdd} stock={stock} />: <p>No hay stock</p>}
+                { stock !== 0 ? <Couter onAdd={handleOnAdd} stock={stock} inicial={quantityAdded}/>: <p>No hay stock</p>}
+                { isInCart(id) && <Link to='/cart' className='Option' style={{ backgroundColor: 'blue'}}>Finalizar compra</Link> }
             </div>
             
 

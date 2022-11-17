@@ -1,10 +1,10 @@
-import React , {useState, useEffect, useContext } from "react"
+import React , {useState, useEffect } from "react"
 import './itemListConteiner.css'
 import { useParams } from "react-router-dom"
 import ItemList from "../ItemList/ItemList"
 import { db } from '../../service/firebase'
 import { getDocs, collection, query, where } from "firebase/firestore"
-import { NotificationContext } from "../notification/ServiceNotification"
+
 
 
 const ItemListConteiner = ({ greeting  }) => {
@@ -13,7 +13,7 @@ const ItemListConteiner = ({ greeting  }) => {
   const [loading, setLoading] = useState(true)
 
   const { categoryId} =useParams()
-  const {setNotification} = useContext(NotificationContext)
+  
 
   useEffect(() => {
     setLoading(true)

@@ -7,14 +7,14 @@ export const CartContext = createContext({
 
 export const CartProvider = ({children}) => {
     const [cart, setCart] = useState([])
-    const [totalQuantity, setTotalQuantity] = useState()
+    const [totalQuantity, setTotalQuantity] = useState(0)
     const [total, setTotal] = useState(0)
     
 
     useEffect(() => {
         const totalQty = getQuantity()
         setTotalQuantity(totalQty)
-    }, [cart])
+    }, [cart]) 
     
     useEffect(() => {
         const total = getTotal()

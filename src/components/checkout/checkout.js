@@ -75,7 +75,7 @@ const Checkout = () => {
 
                     },3000)
 
-                    setNotification('success', 'El id de tu orden es: ${orderAdded.id}')
+                    setNotification('success', `El id de tu orden es: ${orderAdded.id}`)
                 } else {
                     setNotification('error', 'hay productos que estan fuera de stock' )
 
